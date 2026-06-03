@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Vanilla PWA with Bun</title>
+  <meta name="description" content="A pure vanilla HTML, CSS, and JS Progressive Web App served with Bun.">
+  
+  <!-- Manifest Link -->
+  <link rel="manifest" href="/manifest.json">
+  
+  <!-- CSS Link -->
+  <link rel="stylesheet" href="/style.css">
+  
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="BunPWA">
+  <link rel="apple-touch-icon" href="/icon-192.png">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/icon-192.png">
+  <meta name="theme-color" content="#4F46E5">
+</head>
+<body>
+
+  <main class="container">
+    <header class="header">
+      <div class="logo-container">
+        <img class="app-logo" src="/icon-512.png" alt="Bun PWA Logo">
+      </div>
+      
+      <h1>Vanilla PWA with Bun</h1>
+      <p class="subtitle">Minimal, native PWA setup served by Bun's high-performance runtime.</p>
+      
+      <div class="status-badge">
+        <span id="status-indicator" class="status-dot online"></span>
+        <span id="status-text">Online</span>
+      </div>
+    </header>
+
+    <section class="main-content">
+      
+      <!-- Installation Prompt (Hidden by default, shown via app.js) -->
+      <button id="install-btn" class="btn btn-primary hidden">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        Install App
+      </button>
+
+      <!-- Offline Interactive Tester -->
+      <div class="card">
+        <h3>Interactive State Test</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0.5rem 0 1rem;">
+          Click the button below to increment the counter. It will continue working even if you go completely offline!
+        </p>
+        <div style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;" id="counter-value">0</div>
+        <button id="counter-btn" class="btn btn-secondary">Increment Count</button>
+      </div>
+
+      <!-- Debug Console Log -->
+      <div class="terminal">
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <span>Console Log</span>
+        </div>
+        <div id="debug-console" class="console-body">
+          <div class="log-item info">[System] Initializing PWA client...</div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Client-side script -->
+  <script src="/app.js"></script>
+</body>
+</html>
